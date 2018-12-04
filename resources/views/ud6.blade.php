@@ -1,6 +1,7 @@
 @extends('layouts.mainud6')
 
 @section('content')
+@csrf
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -15,7 +16,7 @@
                         session ('status')
                     @endif
 
-                    UNIDAD 6 'AUTENTIFICACION'
+
                 </div>
             </div>
         </div>
