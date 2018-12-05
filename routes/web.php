@@ -21,6 +21,7 @@ Route::get('/', ['as'=>'home','uses'=>'AppController@index']);
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login');
 Route::post('logout', 'Auth\LoginController@logout')->name('logout');
+Route::get('profile', 'HomeController@getProfile')->name('profile');
 
 
 // Registration Routes...

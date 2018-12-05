@@ -8,13 +8,30 @@
     </button>
 
         <div class="collapse navbar-collapse" id="navbar">
-
+           
             <ul class="navbar-nav mr-auto">
+                 @guest
                 <li id="initial" class="nav-item">
                     <a class="nav-link" href="#inicio">
                         Inicio
                     </a>
                 </li>
+                @else
+                <li id="initial" class="nav-item">
+                    <a class="nav-link" href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
+                                             document.getElementById('logout-form').submit();">
+                                {{ __('Enviar mensaje') }}
+                    </a>
+                </li>
+                <li id="initial" class="nav-item">
+                    <a class="nav-link" href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
+                                             document.getElementById('logout-form').submit();">
+                                {{ __('Mensajes') }}
+                    </a>
+                </li>
+                @endguest
             </ul>
             @guest
             <ul class="navbar-nav navbar-right ">
@@ -50,9 +67,7 @@
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('logout') }}"
-                               onclick="event.preventDefault();
-                                             document.getElementById('logout-form').submit();">
+                            <a class="dropdown-item" href="{{ route('profile') }}">
                                 {{ __('Perfil') }}
                             </a>
                             <a class="dropdown-item" href="{{ route('logout') }}"

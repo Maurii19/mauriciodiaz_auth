@@ -25,4 +25,20 @@ class HomeController extends Controller
     {
         return view('home');
     }
+    public function getProfile(){
+        return view('profile');
+    }
+
+    public function updateStatus($id) {
+       // Get the status
+       $status = Status::find($id);
+
+       $name = Input::get('name');
+       $email = Input::get('email');
+
+       $sql = "UPDATE status SET name= ? email= ? WHERE id= ?";
+       DB::update($sql, array($uptitle, $upmessage, $status->id));
+
+       return Redirect::to('/');
+    }
 }
