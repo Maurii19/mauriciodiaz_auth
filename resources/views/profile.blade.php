@@ -17,15 +17,16 @@
                     @endif
                         <center><h3>Datos del perfil</h3></center>
                         <center>
-                            <form action="{{ route('profile') }}" method="POST">
+                            <form method="POST" action="updatePerfil">
                                 @csrf
-                          <p><span>Nombre</span><br>
-                            <input type="text" name="name" value="{{ Auth::user()->name }}" style="width: 40%"></p>
-                          <p><span>Email</span><br>
-                            <input type="text" name="email" value="{{ Auth::user()->email }}" style="width: 40%">
-                          </p>
+                        <input id="id" type="hidden" name="id" value="{{ Auth::user()->id }}">
+                        <label for="name" class="col-sm-4 col-form-label text-md-right">{{ __('Nombre') }}</label>
+                            <input id="text" type="text" name="name" value="{{ Auth::user()->name }}" style="width: 40%">
+                        <label for="email" class="col-sm-4 col-form-label text-md-right">{{ __('Email') }}</label>
+                            <input id="text" type="text" name="email" value="{{ Auth::user()->email }}" style="width: 40%">
+                          
                           <br><br>
-                          <input type="submit" value="Guardar cambios.">
+                          <input type="submit" name="enviar" value="Guardar cambios">
                         </form> 
                     </center>
                 </div>

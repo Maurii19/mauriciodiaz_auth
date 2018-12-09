@@ -35,3 +35,6 @@ Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm
 Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+// Editar perfil
+Route::post('updatePerfil', 'HomeController@updatePerfil');

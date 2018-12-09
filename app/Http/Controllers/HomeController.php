@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 
 class HomeController extends Controller
 {
@@ -29,16 +30,14 @@ class HomeController extends Controller
         return view('profile');
     }
 
-    public function updateStatus($id) {
-       // Get the status
-       $status = Status::find($id);
+    public function updatePerfil(Request $request) {
+       $user = User::find($request->input('id'));
+       $user->name = $request->input('name');
+       $user->email = $request->input('email');
 
-       $name = Input::get('name');
-       $email = Input::get('email');
+       $user->save();
 
-       $sql = "UPDATE status SET name= ? email= ? WHERE id= ?";
-       DB::update($sql, array($uptitle, $upmessage, $status->id));
-
-       return Redirect::to('/');
+       return view('profile');
+      
     }
 }
