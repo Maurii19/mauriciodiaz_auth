@@ -1,5 +1,3 @@
-
-
 <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary" id="mainNavbar">
 
     <a class="navbar-brand" href="#">AUTH</a>
@@ -18,18 +16,16 @@
                 </li>
                 @else
                 <li id="initial" class="nav-item">
-                    <a class="nav-link" href="{{ route('logout') }}"
-                               onclick="event.preventDefault();
-                                             document.getElementById('logout-form').submit();">
-                                {{ __('Enviar mensaje') }}
-                    </a>
+                     <a class="nav-link" href="/sendMessage">
+                            <i class="fa fa-sign-in"></i>
+                            Enviar Mensaje
+                        </a>
                 </li>
                 <li id="initial" class="nav-item">
-                    <a class="nav-link" href="{{ route('logout') }}"
-                               onclick="event.preventDefault();
-                                             document.getElementById('logout-form').submit();">
-                                {{ __('Mensajes') }}
-                    </a>
+                     <a class="nav-link" href="/message" >
+                            <i class="fa fa-sign-in"></i>
+                            Mensaje
+                        </a>
                 </li>
                 @endguest
             </ul>

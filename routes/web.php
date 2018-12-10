@@ -24,6 +24,13 @@ Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 Route::get('profile', 'HomeController@getProfile')->name('profile');
 
 
+Auth::routes(['verify' => true]);
+
+
+Route::get('message', 'HomeController@getProfile')->name('message');
+Route::get('sendMessage', 'HomeController@getProfile')->name('sendMessage');
+
+
 // Registration Routes...
 Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
 Route::post('register', 'Auth\RegisterController@register');
