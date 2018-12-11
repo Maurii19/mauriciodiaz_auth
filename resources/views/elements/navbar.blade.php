@@ -1,6 +1,9 @@
 <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary" id="mainNavbar">
-
-    <a class="navbar-brand" href="#">AUTH</a>
+    @guest
+    <a class="navbar-brand" href="#">Auth</a>
+    @else
+    <a class="navbar-brand" href="/profile">{{ Auth::user()->name }}</a>
+    @endguest
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -10,11 +13,16 @@
             <ul class="navbar-nav mr-auto">
                  @guest
                 <li id="initial" class="nav-item">
-                    <a class="nav-link" href="#inicio">
+                    <a class="nav-link" href="/">
                         Inicio
                     </a>
                 </li>
                 @else
+                 <li id="initial" class="nav-item">
+                    <a class="nav-link" href="/">
+                        Inicio
+                    </a>
+                </li>
                 <li id="initial" class="nav-item">
                      <a class="nav-link" href="/sendMessage">
                             <i class="fa fa-sign-in"></i>

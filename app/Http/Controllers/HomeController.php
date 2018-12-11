@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Notifications\VerifyEmail;
 
 class HomeController extends Controller
 {
@@ -40,4 +41,12 @@ class HomeController extends Controller
        return view('profile');
       
     }
+    public function getMensajes(){
+        return view('message.index');
+    }
+
+    public function sendMessage(){
+        return view('message.create');
+    }
+
 }
